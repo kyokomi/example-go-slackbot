@@ -10,7 +10,7 @@ import (
 
 	"github.com/kyokomi/slackbot"
 	"github.com/kyokomi/slackbot/plugins/akari"
-	"github.com/kyokomi/slackbot/plugins/cron"
+	"github.com/kyokomi/slackbot/plugins/cron/v2"
 	"github.com/kyokomi/slackbot/plugins/docomo"
 	"github.com/kyokomi/slackbot/plugins/kohaimage"
 	"github.com/kyokomi/slackbot/plugins/lgtm"
@@ -31,17 +31,20 @@ func setupSlackBot(redisToGoURL, slackToken, docomoAPIKey string) error {
 	if err != nil {
 		return err
 	}
-	cronRepository := cron.NewRedisRepository(addr, password, 1)
-	docomoRepository := slackbot.NewRedisRepository(addr, password, 1)
 
-	cronCtx := cron.NewCronContext(cronRepository)
-	defer cronCtx.Close()
+	cronRepository := cron.NewRedisRepository(addr, password, 0, "")
+	docomoRepository := slackbot.NewRedisRepository(addr, password, 0)
+
+	cronCtx, err := cron.NewContext(cronRepository)
+	if err != nil {
+		return err
+	}
 
 	botCtx, err := slackbot.NewBotContextNotSysstd(slackToken)
 	if err != nil {
 		return err
 	}
-	cronCtx.AllRefreshCron(botCtx)
+	cronCtx.AllRefresh(botCtx)
 
 	sysPlugin := sysstd.NewPlugin(botCtx.PluginManager())
 	sysPlugin.SetTimezone("JST")

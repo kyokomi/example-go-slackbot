@@ -1,5 +1,5 @@
 hash: 9ed0253f547883411119d16ba7d04488c4145f3edd41a4c6944cf425ab8f8322
-updated: 2017-01-01T21:34:38.007530082+09:00
+updated: 2017-01-02T00:05:48.104305366+09:00
 imports:
 - name: github.com/andybalholm/cascadia
   version: 349dd0209470eabd9514242c688c403c0926d266
@@ -23,11 +23,12 @@ imports:
 - name: github.com/kyokomi/goroku
   version: 677aeb54612d88847d03709aa23c39be04392dd9
 - name: github.com/kyokomi/slackbot
-  version: c53a3fa3c22286510d307f495e3e86934046f5a7
+  version: 7ee4d9ea6accb764071359cf601ea24b610701c4
   subpackages:
   - plugins
   - plugins/akari
   - plugins/cron
+  - plugins/cron/v2
   - plugins/docomo
   - plugins/googleimage
   - plugins/kohaimage

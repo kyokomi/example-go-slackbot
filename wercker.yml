@@ -18,7 +18,11 @@ docker-push:
     - glide-install
     - setup-go-workspace
     - script:
-        name: install
+        name: install deamontools
+        code: |
+          go get github.com/lestrrat/go-server-starter/cmd/start_server
+    - script:
+        name: install application
         code: |
           go install
     - internal/docker-push:
