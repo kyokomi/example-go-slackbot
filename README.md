@@ -2,10 +2,8 @@ example-go-slackbot
 ===============================
 
 ## Application Environment
-- `SLACK_BOT_TOKEN`
-- `DOCOMO_APIKEY`
-- `CSE_CX`
-- `CSE_APIKEY`
+- `SLACK_BOT_TOKEN`: required
+- `DOCOMO_APIKEY`: `github.com/kyokomi/go-docomo/docomo` plugin
 - `REDISTOGO_URL`: `redis://<id>:<password>@<host>:<port>` https://redistogo.com/
 
 ## Wercker Environment

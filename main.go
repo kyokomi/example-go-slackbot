@@ -12,7 +12,6 @@ import (
 	"github.com/kyokomi/slackbot/plugins/akari"
 	"github.com/kyokomi/slackbot/plugins/cron"
 	"github.com/kyokomi/slackbot/plugins/docomo"
-	"github.com/kyokomi/slackbot/plugins/googleimage"
 	"github.com/kyokomi/slackbot/plugins/kohaimage"
 	"github.com/kyokomi/slackbot/plugins/lgtm"
 	"github.com/kyokomi/slackbot/plugins/naruhodo"
@@ -26,7 +25,7 @@ func init() {
 	}
 }
 
-func setupSlackBot(redisToGoURL, slackToken, docomoAPIKey, cseCx, cseApiKey string) error {
+func setupSlackBot(redisToGoURL, slackToken, docomoAPIKey string) error {
 	// setup repository
 	addr, password, err := parseRedisURL(redisToGoURL)
 	if err != nil {
@@ -51,9 +50,6 @@ func setupSlackBot(redisToGoURL, slackToken, docomoAPIKey, cseCx, cseApiKey stri
 	if docomoAPIKey != "" {
 		botCtx.AddPlugin("docomo", docomo.NewPlugin(godocomo.NewClient(docomoAPIKey), docomoRepository))
 	}
-	if cseCx != "" && cseApiKey != "" {
-		botCtx.AddPlugin("image", googleimage.NewPlugin(googleimage.NewGoogleImageAPIClient(http.DefaultClient, cseCx, cseApiKey)))
-	}
 	botCtx.AddPlugin("akari", akari.NewPlugin())
 	botCtx.AddPlugin("naruhodo", naruhodo.NewPlugin())
 	botCtx.AddPlugin("lgtm", lgtm.NewPlugin())
@@ -65,15 +61,13 @@ func setupSlackBot(redisToGoURL, slackToken, docomoAPIKey, cseCx, cseApiKey stri
 }
 
 func main() {
-	var serverAddr, slackToken, dApiKey, cseCx, cseApiKey string
+	var serverAddr, slackToken, dApiKey string
 	flag.StringVar(&serverAddr, "addr", ":8080", "serverのaddr")
 	flag.StringVar(&slackToken, "slackToken", os.Getenv("SLACK_BOT_TOKEN"), "SlackのBotToken")
 	flag.StringVar(&dApiKey, "docomo", os.Getenv("DOCOMO_APIKEY"), "DocomoのAPIKEY")
-	flag.StringVar(&cseCx, "cse-cx", os.Getenv("CSE_CX"), "Google Custom Search APIのcx")
-	flag.StringVar(&cseApiKey, "cse-apikey", os.Getenv("CSE_APIKEY"), "Google Custom Search APIのAPIKEY")
 	flag.Parse()
 
-	if err := setupSlackBot(os.Getenv("REDISTOGO_URL"), slackToken, dApiKey, cseCx, cseApiKey); err != nil {
+	if err := setupSlackBot(os.Getenv("REDISTOGO_URL"), slackToken, dApiKey); err != nil {
 		log.Fatalln(err)
 	}
 
