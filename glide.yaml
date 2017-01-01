@@ -1,0 +1,25 @@
+package: github.com/kyokomi/example-go-slackbot
+import:
+- package: github.com/braintree/manners
+- package: github.com/fukata/golang-stats-api-handler
+- package: github.com/kyokomi/go-docomo
+  subpackages:
+  - docomo
+- package: github.com/kyokomi/goroku
+- package: github.com/kyokomi/slackbot
+  subpackages:
+  - plugins
+  - plugins/akari
+  - plugins/cron
+  - plugins/docomo
+  - plugins/googleimage
+  - plugins/kohaimage
+  - plugins/lgtm
+  - plugins/naruhodo
+  - plugins/suddendeath
+  - plugins/sysstd
+- package: github.com/labstack/echo
+- package: github.com/zenazn/goji
+  subpackages:
+  - bind
+- package: gopkg.in/redis.v3

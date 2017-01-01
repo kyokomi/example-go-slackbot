@@ -1,0 +1,54 @@
+build:
+  box: golang
+  steps:
+    - glide-install
+    - setup-go-workspace
+    - script:
+        name: go test
+        code: |
+          go test -v -cover $(go list ./... | grep -v /vendor/ | grep -v /mock | grep -v /gen | grep -v /_design)
+    - script:
+        name: go vet
+        code: |
+          go vet $(go list ./... | grep -v /vendor/ | grep -v /mock | grep -v /gen | grep -v /_design)
+
+docker-push:
+  box: golang
+  steps:
+    - glide-install
+    - setup-go-workspace
+    - script:
+        name: install
+        code: |
+          go install
+    - internal/docker-push:
+        username:   $DOCKER_HUB_USERNAME
+        password:   $DOCKER_HUB_PASSWORD
+        tag:        latest
+        repository: kyokomi/slackbotgo
+        registry:   https://registry.hub.docker.com
+
+arukas-deploy:
+  box: golang
+  steps:
+    - script:
+        name: install tools
+        code: |
+          sudo apt-get update
+          sudo apt-get -f install
+          sudo apt-get install -y wget unzip curl tree
+    - script:
+        name: arukas install
+        code: |
+          mkdir -p $HOME/lib
+          export PATH=$PATH:$HOME/lib
+          cd $HOME/lib
+          wget https://github.com/arukasio/cli/releases/download/v0.1.2/arukas_v0.1.2_linux_amd64.zip
+          unzip arukas_v0.1.2_linux_amd64.zip
+          rm arukas_v0.1.2_linux_amd64.zip
+    - script:
+        name: arukas restart
+        code: |
+          arukas stop ${ARUKAS_CONTAINER_ID}
+          sleep 10
+          arukas start ${ARUKAS_CONTAINER_ID}

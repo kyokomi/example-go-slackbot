@@ -1,0 +1,6 @@
+FROM golang:1.7.4
+
+ADD . /go/src/github.com/kyokomi/example-go-slackbot
+WORKDIR /go/src/github.com/kyokomi/example-go-slackbot
+RUN go install
+

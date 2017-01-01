@@ -1,0 +1,9 @@
+.git
+.idea
+.envrc
+docker-compose.yml
+Dockerfile
+Dockerfile.build
+README.md
+wercker.yml
+Makefile

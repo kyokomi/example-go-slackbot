@@ -1,0 +1,119 @@
+hash: e9e4c86ff890737dc9269d2fc917a3ba49e01208318628fcea7046ce06bff56b
+updated: 2016-12-25T18:32:47.438596717+09:00
+imports:
+- name: github.com/andybalholm/cascadia
+  version: 349dd0209470eabd9514242c688c403c0926d266
+- name: github.com/bitly/go-simplejson
+  version: aabad6e819789e569bd6aabf444c935aa9ba1e44
+- name: github.com/braintree/manners
+  version: 82a8879fc5fd0381fa8b2d8033b19bf255252088
+- name: github.com/fukata/golang-stats-api-handler
+  version: ab9f90f16caab828afda479fd34bfbbbba2efcee
+- name: github.com/golang/mock
+  version: bd3c8e81be01eef76d4b503f5e687d2d1354d2d9
+  subpackages:
+  - gomock
+- name: github.com/golang/protobuf
+  version: df1d3ca07d2d07bba352d5b73c4313b4e2a6203e
+  subpackages:
+  - proto
+- name: github.com/gotsunami/go-cloudinary
+  version: 1216300b6d57f89bfa40f47236e9f661f71a84f2
+- name: github.com/kyokomi/cloudinary
+  version: b4d50f43b0e717259ac085007ed2592ea87b2b3c
+- name: github.com/kyokomi/go-docomo
+  version: f7e2082d4cd56e188980a3c3bc83a42a1967ed79
+  subpackages:
+  - docomo
+  - internal
+- name: github.com/kyokomi/goroku
+  version: 677aeb54612d88847d03709aa23c39be04392dd9
+- name: github.com/kyokomi/slackbot
+  version: c53a3fa3c22286510d307f495e3e86934046f5a7
+  subpackages:
+  - plugins
+  - plugins/akari
+  - plugins/cron
+  - plugins/docomo
+  - plugins/googleimage
+  - plugins/kohaimage
+  - plugins/lgtm
+  - plugins/naruhodo
+  - plugins/suddendeath
+  - plugins/sysstd
+- name: github.com/labstack/echo
+  version: e08070379af60f5b9c0fb5bb2d1527ba9624fe43
+  subpackages:
+  - context
+  - engine
+  - engine/standard
+  - log
+- name: github.com/labstack/gommon
+  version: 445cf40e6de4cbef35daf3285ff5212c91e78262
+  subpackages:
+  - color
+  - log
+- name: github.com/mattn/go-colorable
+  version: 6c903ff4aa50920ca86087a280590b36b3152b9c
+- name: github.com/mattn/go-isatty
+  version: 66b8e73f3f5cda9f96b69efd03dd3d7fc4a5cdb8
+- name: github.com/nlopes/slack
+  version: e595e9d8590a04ff76407e4e7d1791d25b095c66
+- name: github.com/PuerkitoBio/goquery
+  version: 152b1a2c8f5d0340f658bb656032a39b94e52958
+- name: github.com/robfig/cron
+  version: 9585fd555638e77bba25f25db5c44b41f264aeb7
+- name: github.com/valyala/fasttemplate
+  version: 3b874956e03f1636d171bda64b130f9135f42cff
+- name: github.com/vmihailenco/bufio
+  version: 24e7e48f60fc2d9e99e43c07485d9fff42051e66
+- name: github.com/zenazn/goji
+  version: 4d7077956293261309684d3cf1af673f773c6819
+  subpackages:
+  - bind
+- name: golang.org/x/net
+  version: 45e771701b814666a7eb299e6c7a57d0b1799e91
+  subpackages:
+  - context
+  - html
+  - html/atom
+  - websocket
+- name: golang.org/x/sys
+  version: 8d1157a435470616f975ff9bb013bea8d0962067
+  subpackages:
+  - unix
+- name: google.golang.org/appengine
+  version: 150dc57a1b433e64154302bdc40b6bb8aefa313a
+  subpackages:
+  - internal
+  - internal/base
+  - internal/datastore
+  - internal/log
+  - internal/remote_api
+  - internal/urlfetch
+  - urlfetch
+- name: gopkg.in/airbrake/gobrake.v1
+  version: f12667a6c3bda272083682a04a05ee7a14e55378
+- name: gopkg.in/bsm/ratelimit.v1
+  version: db14e161995a5177acef654cb0dd785e8ee8bc22
+- name: gopkg.in/bufio.v1
+  version: 567b2bfa514e796916c4747494d6ff5132a1dfce
+- name: gopkg.in/mgo.v2
+  version: 3f83fa5005286a7fe593b055f0d7771a7dce4655
+  subpackages:
+  - bson
+  - internal/json
+  - internal/sasl
+  - internal/scram
+- name: gopkg.in/redis.v2
+  version: e6179049628164864e6e84e973cfb56335748dea
+- name: gopkg.in/redis.v3
+  version: b5e368500d0a508ef8f16e9c2d4025a8a46bcc29
+  subpackages:
+  - internal
+  - internal/consistenthash
+  - internal/hashtag
+  - internal/pool
+- name: gopkg.in/vmihailenco/msgpack.v1
+  version: 721f2af77065519b762a8d5fa2b441d29e96bbca
+testImports: []
