@@ -12,6 +12,7 @@ example-go-slackbot
 - DockerHub push
     - `DOCKER_HUB_USERNAME`
     - `DOCKER_HUB_PASSWORD`
+    - `DOCKER_HUB_REPOSITORY`: (example) `kyokomi/go-slackbot`
 - Arukas restart
     - `ARUKAS_JSON_API_TOKEN`
     - `ARUKAS_JSON_API_SECRET`

@@ -25,7 +25,7 @@ docker-push:
         username:   $DOCKER_HUB_USERNAME
         password:   $DOCKER_HUB_PASSWORD
         tag:        latest
-        repository: kyokomi/slackbotgo
+        repository: $DOCKER_HUB_REPOSITORY
         registry:   https://registry.hub.docker.com
 
 arukas-deploy:
