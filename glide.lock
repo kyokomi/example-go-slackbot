@@ -1,5 +1,5 @@
 hash: 9ed0253f547883411119d16ba7d04488c4145f3edd41a4c6944cf425ab8f8322
-updated: 2017-02-05T16:43:11.30437798+09:00
+updated: 2017-02-05T17:46:45.677347229+09:00
 imports:
 - name: github.com/andybalholm/cascadia
   version: 349dd0209470eabd9514242c688c403c0926d266
@@ -23,13 +23,14 @@ imports:
 - name: github.com/kyokomi/goroku
   version: 677aeb54612d88847d03709aa23c39be04392dd9
 - name: github.com/kyokomi/slackbot
-  version: 8b3663bbb462bf5c7a6d8c0403f72759129164fb
+  version: 1e2d94b45fe1bd295dccf657fc312faa9b5511ee
   subpackages:
   - plugins
   - plugins/akari
   - plugins/cron
   - plugins/cron/v2
   - plugins/docomo
+  - plugins/esa
   - plugins/googleimage
   - plugins/kohaimage
   - plugins/lgtm
@@ -45,6 +46,10 @@ imports:
   version: 152b1a2c8f5d0340f658bb656032a39b94e52958
 - name: github.com/robfig/cron
   version: 9585fd555638e77bba25f25db5c44b41f264aeb7
+- name: github.com/upamune/go-esa
+  version: 5c8b430b0e94e1cfff251624f7ae979b7a411f73
+  subpackages:
+  - esa
 - name: github.com/vmihailenco/bufio
   version: 24e7e48f60fc2d9e99e43c07485d9fff42051e66
 - name: github.com/zenazn/goji
