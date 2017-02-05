@@ -1,5 +1,5 @@
 hash: 9ed0253f547883411119d16ba7d04488c4145f3edd41a4c6944cf425ab8f8322
-updated: 2017-01-02T00:05:48.104305366+09:00
+updated: 2017-02-05T16:43:11.30437798+09:00
 imports:
 - name: github.com/andybalholm/cascadia
   version: 349dd0209470eabd9514242c688c403c0926d266
@@ -23,7 +23,7 @@ imports:
 - name: github.com/kyokomi/goroku
   version: 677aeb54612d88847d03709aa23c39be04392dd9
 - name: github.com/kyokomi/slackbot
-  version: 7ee4d9ea6accb764071359cf601ea24b610701c4
+  version: 8b3663bbb462bf5c7a6d8c0403f72759129164fb
   subpackages:
   - plugins
   - plugins/akari
@@ -34,6 +34,7 @@ imports:
   - plugins/kohaimage
   - plugins/lgtm
   - plugins/naruhodo
+  - plugins/router
   - plugins/suddendeath
   - plugins/sysstd
 - name: github.com/labstack/echo

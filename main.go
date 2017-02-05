@@ -17,6 +17,7 @@ import (
 	"github.com/kyokomi/slackbot/plugins/naruhodo"
 	"github.com/kyokomi/slackbot/plugins/suddendeath"
 	"github.com/kyokomi/slackbot/plugins/sysstd"
+	"github.com/kyokomi/slackbot/plugins/router"
 )
 
 func init() {
@@ -50,6 +51,7 @@ func setupSlackBot(redisToGoURL, slackToken, docomoAPIKey string) error {
 	sysPlugin.SetTimezone("JST")
 	botCtx.AddPlugin("sysstd", sysPlugin)
 	botCtx.AddPlugin("cron", cron.NewPlugin(cronCtx))
+	botCtx.AddPlugin("router", router.NewPlugin(botCtx.Client, docomoRepository))
 	if docomoAPIKey != "" {
 		botCtx.AddPlugin("docomo", docomo.NewPlugin(godocomo.NewClient(docomoAPIKey), docomoRepository))
 	}
