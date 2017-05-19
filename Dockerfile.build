@@ -1,6 +1,22 @@
-FROM golang:1.7.4
+# building bot
+FROM golang:1.8 AS build-env
 
-ADD . /go/src/github.com/kyokomi/example-go-slackbot
-WORKDIR /go/src/github.com/kyokomi/example-go-slackbot
-RUN go install
+ENV GOPATH /work
+RUN echo $GOPATH
+
+ADD . $GOPATH/src/github.com/kyokomi/amadeus_bot
+WORKDIR $GOPATH/src/github.com/kyokomi/amadeus_bot
+
+RUN GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go install
+RUN GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go get github.com/lestrrat/go-server-starter/cmd/start_server
+RUN curl -o /work/ca-certificates.crt https://curl.haxx.se/ca/cacert.pem
+
+# Runnning bot
+FROM busybox
+
+COPY --from=build-env /work/bin/amadeus_bot /usr/local/bin/amadeus_bot
+COPY --from=build-env /work/bin/start_server /usr/local/bin/start_server
+COPY --from=build-env /work/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
+
+CMD /usr/local/bin/start_server --port=8000 -- /usr/local/bin/amadeus_bot
 
